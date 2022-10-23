@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import {auth, firestore} from './Firebase/config'
+import {auth, firestore} from '../Firebase/config'
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
@@ -8,6 +8,7 @@ export default function Posts() {
     return (
       <>
         <section>
+            
             {user ? <PostPage/> : <PleaseSignIn/>}
         </section>
       </>
@@ -23,14 +24,12 @@ function PostPage() {
     const query = collection_testing.orderBy('createdAt').limit(10);
 
     const [messages] = useCollectionData(query, {idField: 'id'});
-
     console.log(messages);
-    console.log("ALKJFHLAKFHLKAJFHLKAFJH");
     return(
         <div>
             <h1>POST PAGE</h1>
             <div>
-            {messages && messages.map((msg, index) => <PostPageMsgs key={index} message={msg} />)}
+            {messages && messages.reverse().map((msg, index) => <PostPageMsgs key={index} message={msg} />)}
             </div>
 
             <Link href="/">Back to home</Link>
@@ -43,7 +42,11 @@ function PostPageMsgs(props){
     const { text, uid, photoURL } = props.message;
 
     return(
-        <p>{text}</p>
+        <div>
+            <p>{text}</p>
+            <p>{uid}</p>
+        </div>
+        
     );
 }
 
