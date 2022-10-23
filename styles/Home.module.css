@@ -133,10 +133,11 @@
 .homeTop{
   display: flex;
   background-color: #3871aa;
+  list-style-type: none;
 }
 
 .homeTop h1{
-  padding: 10px 650px; 
+  padding: 10px 690px; 
   font-size: 1.2em;
   margin-bottom: 0;
   letter-spacing: -0.03em;
@@ -144,4 +145,15 @@
   color: rgba(228, 228, 228, 0.8);
   text-transform: uppercase;
   text-align: center;
+  list-style-type: none;
+}
+
+.list {
+  list-style-type: none;
+  align-items: center;
+  justify-content: center;
+}
+
+.homepage {
+  justify-content: center;
 }

@@ -85,9 +85,10 @@ function HomePage() {
         
       </div>
 
-      <ul>
-        <li><Link href="/posts">Posts</Link></li>
-        <li>Profile</li>
+      
+      <ul className={styles.list}>
+        <li><Link href="/posts"><button>Posts</button></Link></li>
+        <button>Profile</button>
       </ul>
   </div>
   );
