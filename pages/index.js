@@ -80,8 +80,9 @@ function HomePage() {
   return(
     <div className="HomePage">
       <div className={styles.homeTop}>
-        <h1>Welcome to Home Page</h1>
         {<SignOut/>}
+        <h1>Welcome to Home Page</h1>
+        
       </div>
 
       <ul>

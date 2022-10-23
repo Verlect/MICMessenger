@@ -132,5 +132,16 @@
 
 .homeTop{
   display: flex;
-  background-color: DodgerBlue;
+  background-color: #3871aa;
+}
+
+.homeTop h1{
+  padding: 10px 650px; 
+  font-size: 1.2em;
+  margin-bottom: 0;
+  letter-spacing: -0.03em;
+  font-weight: 500;
+  color: rgba(228, 228, 228, 0.8);
+  text-transform: uppercase;
+  text-align: center;
 }
