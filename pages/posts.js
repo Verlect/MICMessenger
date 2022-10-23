@@ -5,7 +5,7 @@ import {auth, firestore} from '../Firebase/config'
 import { useAuthState, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
 
-//import styles from '../styles/posts.module.css'
+import styles from '../styles/posts.module.css'
 
 
 export default function Posts() {
@@ -13,8 +13,9 @@ export default function Posts() {
 
     return (
       <>
-        <section>
-            
+        <section className={styles.parent}>
+            <h1>MIC Messenger: POST PAGE</h1>
+            <Link href="/">[Back to home]</Link>
             {user ? <PostPage/> : <PleaseSignIn/>}
         </section>
       </>
@@ -57,13 +58,14 @@ function PostPage() {
 
 
     return(
-        <div>
-            <h1>POST PAGE</h1>
-            <ul>
-                {(state==0) ? chatNames && chatNames.map((names, index)=><PostsList key={index} pos={index} title={names} onClick={(i)=>{setState(1); setIndex(i); }}/>) : <Chatroom chatID={chatIDs[index]} chatName={chatNames[index]}/>}  
+        <>
+        <div className={styles.post}>
+            <ul className={styles.chatList}>
+                {(state==0) ? chatNames && chatNames.map((names, index)=><PostsList key={index} pos={index} title={names} onClick={(i)=>{setState(1); setIndex(i); }}/>) : <Chatroom chatID={chatIDs[index]} chatName={chatNames[index]} onClick={(i)=>{setState(0); setIndex(0); }}/>}  
             </ul>
             
         </div>
+        </>
 
 
     );
@@ -74,13 +76,10 @@ function PostsList(props) {
     const id = props.pos;
     return(
         <>
-        <li><button onClick={event=>props.onClick(id)}>{text}</button></li>
+        <li><button className={styles.button66} onClick={event=>props.onClick(id)}>{text}</button></li>
         </>
     );
 }
-
-
-
 
 
 
@@ -134,12 +133,11 @@ function Chatroom(props) {
 
         <form onSubmit={sendMessage}>
             <input value={formValue} onChange={(e) => setFormValue(e.target.value)} placeholder="type message here" />
-            <button type="submit" disabled={!formValue}>🕊️</button>
+            <button type="submit" disabled={!formValue}>⊳</button>
         </form>
 
-        <Link href="/">Back to home</Link>
+        <p className={styles.return} onClick={event=>props.onClick()}>Return</p>
     </>
-        
     );
 }
 
