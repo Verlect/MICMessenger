@@ -78,7 +78,7 @@ function SignOut() {
 function HomePage() {
 
   return(
-    <div class="HomePage">
+    <div className="HomePage">
       <div className={styles.homeTop}>
         <h1>Welcome to Home Page</h1>
         {<SignOut/>}
@@ -88,8 +88,6 @@ function HomePage() {
         <li><Link href="/posts">Posts</Link></li>
         <li>Profile</li>
       </ul>
-      
-    
   </div>
   );
   
