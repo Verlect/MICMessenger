@@ -127,3 +127,10 @@
     filter: invert(1);
   }
 }
+
+
+
+.homeTop{
+  display: flex;
+  background-color: DodgerBlue;
+}

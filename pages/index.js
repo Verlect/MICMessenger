@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 
+import Link from 'next/link';
+
+
 // Firebase SDKs
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/firestore';
@@ -34,7 +37,7 @@ export default function Home() {
       <header>
       </header>
       <section>
-        {user ? <TEMPOUT/> : <TitlePage/>}
+        {user ? <HomePage/> : <TitlePage/>}
       </section>
     </div>
   )
@@ -64,11 +67,35 @@ function SignIn() {
   );
 }
 
-function TEMPOUT() {
+function SignOut() {
   return auth.currentUser && (// Check to see if a current user exists.
   <div>
-    <p>Hello There</p>
   <button onClick={() => auth.signOut()}> Sign-Out With Google</button>
   </div>
   );
+}
+
+function HomePage() {
+
+  return(
+    <div class="HomePage">
+      <div className={styles.homeTop}>
+        <h1>Welcome to Home Page</h1>
+        {<SignOut/>}
+      </div>
+
+      <ul>
+        <li><Link href="/posts">Posts</Link></li>
+        <li>Profile</li>
+      </ul>
+      
+    
+  </div>
+  );
+  
+}
+
+function Posts() { //primative, must be changed later
+
+
 }
